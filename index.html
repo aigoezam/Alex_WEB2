@@ -27,13 +27,18 @@
     <section class="hero">
       <div class="hero-text">
         <h1>Hi, I'm <span>Alexander Immanuel Goerke Zamora</span></h1>
+
         <p>
           Industrial Electronics and Automation Engineering student from Spain, currently expanding my academic,
           professional, and personal horizons through an Erasmus+ exchange at the Technical University of Denmark (DTU).
           I enjoy solving engineering challenges with a practical, hands-on mindset – from robotics and digital control
           to electronics, automation, and energy systems.
         </p>
-        <a href="#experience" class="btn-primary">Explore my experience</a>
+
+        <div class="hero-buttons">
+          <a href="#experience" class="btn-primary">View my experience</a>
+          <a href="CV_Finance.pdf" download class="btn-secondary">Download CV</a>
+        </div>
       </div>
     </section>
 
@@ -63,29 +68,38 @@
 
     <!-- ========== COPENHAGEN EXPERIENCE ========== -->
     <section id="copenhagen" class="section highlight">
-      <h2>My Experience Living in Copenhagen</h2>
+      <h2>My Life in Spain & Copenhagen</h2>
 
       <p>
-        Moving to Copenhagen for my Erasmus+ stay at DTU has been one of the most transformative experiences of my life.
-        It has pushed me to grow not only as an engineer but also as a person.
+        Before arriving in Copenhagen, my life in Spain was defined by constant movement, curiosity, and the ambition to grow.
+        I was always searching for new opportunities to learn, gain real experience, and challenge myself both personally and
+        academically. Whether it was studying engineering, working, tutoring, or practicing sports, I always tried to maintain
+        an active, disciplined lifestyle.
       </p>
 
       <p>
-        Living abroad has taught me how to adapt to new cultures, environments, and ways of thinking. Copenhagen has a
-        unique atmosphere – calm, intelligent, inspiring, and full of opportunities. Here I learned the importance of
-        independence, self-discipline, and the balance between academic life and personal well-being.
+        Sports have been a fundamental part of who I am. I have practiced <strong>padel</strong>,
+        <strong>skiing</strong> (snow and water), <strong>taekwondo</strong> (green belt, competition),
+        <strong>American football</strong> (competition), <strong>basketball</strong> (competition),
+        <strong>climbing</strong>, <strong>gym training</strong>, and even completed a
+        <strong>half marathon</strong>. These experiences taught me discipline, teamwork, leadership,
+        resilience, and the importance of consistency.
       </p>
 
       <p>
-        Beyond university, this experience has helped me socialize more, make new friends from all around the world, and
-        surround myself with people who motivate and push me to become better. I have met incredible individuals, shared
-        unforgettable moments, and built friendships that I will carry for life.
+        Coming to Copenhagen for my Erasmus+ exchange at DTU was a decision driven by the desire to expand my horizons and
+        experience life from a new perspective. I wanted to grow independently, understand new cultures, and place myself
+        in an international engineering environment where I could develop not only academically but personally as well.
       </p>
 
       <p>
-        I can confidently say that Copenhagen has shaped the person I am today – more mature, more social, and more
-        prepared for the challenges ahead.
+        Living here has been transformative. Copenhagen has helped me become more mature, more confident, and more social.
+        I have met incredible people from all around the world, learned to adapt to new environments, and gained a global
+        mindset that shapes how I face engineering and life. This experience has strengthened my communication skills,
+        pushed me out of my comfort zone, and helped me become a better version of myself.
       </p>
+
+    
     </section>
 
 
@@ -95,7 +109,6 @@
 
       <div class="projects-grid">
 
-        <!-- Leroy Merlin -->
         <article class="project-card">
           <h3>Leroy Merlin – Customer Service & Sales Assistant</h3>
           <p>
@@ -104,7 +117,6 @@
           </p>
         </article>
 
-        <!-- Private tutor -->
         <article class="project-card">
           <h3>Private Tutor – Mathematics, Physics & Chemistry</h3>
           <p>
@@ -113,7 +125,6 @@
           </p>
         </article>
 
-        <!-- Restaurant -->
         <article class="project-card">
           <h3>Restaurant Work – Waiter</h3>
           <p>
@@ -127,43 +138,64 @@
 
 
     <!-- ========== PROJECTS ========== -->
-    <section id="projects" class="section">
-      <h2>Engineering Projects</h2>
+<section id="projects" class="section">
+  <h2>Engineering Projects</h2>
 
-      <div class="projects-grid">
+  <div class="projects-grid">
 
-        <article class="project-card">
-          <h3>4-DOF Robotic Arm – Vision & Control</h3>
-          <p>
-            Built a robotic arm control system capable of object detection using HSV, image calibration, and inverse
-            kinematics. Implemented smooth joint-space control using Dynamixel servos.
-          </p>
-        </article>
+    <!-- Project 1 -->
+    <article class="project-card">
+      <h3>4-DOF Robotic Arm – Vision & Control</h3>
+      <p>
+        Built a robotic arm capable of detecting objects using computer vision,
+        converting pixel coordinates to world space, and reaching targets using
+        inverse kinematics. Implemented smooth joint-space motion with Dynamixel servos.
+      </p>
 
-        <article class="project-card">
-          <h3>Differential-Drive Robot – Digital Control</h3>
-          <p>
-            Designed PI/PD controllers and sensor fusion algorithms. Validated designs in Simulink and implemented them
-            on a Teensy 4.1 microcontroller.
-          </p>
-        </article>
+      <video class="project-video" controls>
+        <source src="videos/Robotics.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </article>
 
-        <article class="project-card">
-          <h3>Graph Neural Networks – Deep Learning</h3>
-          <p>
-            Trained a physics-informed PaiNN model for molecular property prediction using QM9 and MD17 datasets.
-          </p>
-        </article>
+    <!-- Project 2 -->
+    <article class="project-card">
+      <h3>Differential-Drive Robot – Digital Control</h3>
+      <p>
+        Designed and implemented PI/PD controllers and sensor fusion for a
+        differential-drive robot. Validated in Simulink and deployed on a Teensy 4.1.
+      </p>
 
-      </div>
-    </section>
+      <video class="project-video" controls>
+        <source src="videos/Digital_Control.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </article>
+
+    <!-- Project 3 -->
+    <article class="project-card">
+      <h3>Graph Neural Networks – Deep Learning</h3>
+      <p>
+        Trained a physics-informed graph neural network (PaiNN) for molecular
+        property prediction using QM9 and MD17 datasets.
+      </p>
+
+      <video class="project-video" controls>
+        <source src="videos/Deep_Learning.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </article>
+
+  </div>
+</section>
+
 
 
     <!-- ========== CONTACT ========== -->
     <section id="contact" class="section">
       <h2>Contact</h2>
       <p>
-        If you want to collaborate, connect, or talk about opportunities, feel free to reach out:
+        If you want to collaborate, connect, or discuss opportunities, feel free to reach out:
       </p>
       <ul>
         <li>Email: <a href="mailto:alexander.goerke2004@gmail.com">alexander.goerke2004@gmail.com</a></li>

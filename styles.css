@@ -1,4 +1,4 @@
-/* ========== RESET & VARIABLES ========== */
+/* ================= RESET & VARIABLES ================= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -30,7 +30,7 @@ body {
   line-height: 1.6;
 }
 
-/* ========== TOPBAR ========== */
+/* ================= TOPBAR ================= */
 .topbar {
   position: sticky;
   top: 0;
@@ -70,7 +70,7 @@ body {
   transform: translateY(-1px);
 }
 
-/* ========== HERO ========== */
+/* ================= HERO ================= */
 .hero {
   min-height: 70vh;
   display: flex;
@@ -113,28 +113,48 @@ body {
   font-size: 1rem;
 }
 
-/* Botón principal */
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
 .btn-primary {
-  display: inline-block;
   padding: 0.8rem 1.7rem;
   border-radius: var(--radius-pill);
   text-decoration: none;
-  border: none;
   font-weight: 600;
   font-size: 0.95rem;
   background: linear-gradient(120deg, var(--accent), var(--accent-strong));
   color: #f9fafb;
   box-shadow: 0 14px 30px rgba(37, 99, 235, 0.35);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .btn-primary:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   box-shadow: 0 20px 40px rgba(37, 99, 235, 0.45);
-  opacity: 0.97;
 }
 
-/* ========== SECCIONES GENERALES ========== */
+.btn-secondary {
+  padding: 0.8rem 1.7rem;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--accent);
+  background: white;
+  border: 2px solid var(--accent);
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+}
+
+/* ================= SECTIONS ================= */
 .section {
   padding: 3rem 8vw;
 }
@@ -149,7 +169,7 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -0.25rem;
+  bottom: -0.3rem;
   width: 52px;
   height: 3px;
   border-radius: 999px;
@@ -158,35 +178,31 @@ body {
 
 .section p {
   color: var(--text-muted);
-  max-width: 800px;
-  margin-bottom: 0.7rem;
+  max-width: 850px;
+  margin-bottom: 0.8rem;
 }
 
-/* Sección destacada (Copenhagen) */
+/* Highlight section */
 .section.highlight {
   background: linear-gradient(135deg, #eef2ff, #ecfeff);
-  margin: 0 4vw;
+  margin: 1.5rem 4vw;
   border-radius: 24px;
-  padding: 2.5rem 3rem;
+  padding: 2.8rem 3rem;
   box-shadow: var(--shadow-soft);
 }
 
-.section.highlight p {
-  max-width: 850px;
-}
-
-/* ========== GRID Y CARDS (Experience & Projects) ========== */
+/* ================= GRID & CARDS ================= */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.6rem;
-  margin-top: 1.2rem;
+  margin-top: 1.3rem;
 }
 
 .project-card {
   background: var(--bg-section);
   border-radius: var(--radius-lg);
-  padding: 1.4rem 1.4rem 1.3rem;
+  padding: 1.4rem;
   border: 1px solid var(--border-soft);
   box-shadow: 0 14px 30px rgba(15, 23, 42, 0.04);
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
@@ -208,7 +224,7 @@ body {
   border-color: rgba(129, 140, 248, 0.5);
 }
 
-/* ========== CONTACTO ========== */
+/* ================= CONTACT ================= */
 #contact ul {
   list-style: none;
   margin-top: 0.7rem;
@@ -228,27 +244,22 @@ body {
   text-decoration: underline;
 }
 
-/* ========== FOOTER ========== */
+/* ================= FOOTER ================= */
 .footer {
   text-align: center;
   padding: 1.2rem;
   font-size: 0.85rem;
   color: var(--text-muted);
   border-top: 1px solid rgba(209, 213, 219, 0.8);
-  margin-top: 1rem;
   background-color: rgba(255, 255, 255, 0.85);
 }
 
-/* ========== RESPONSIVE ========== */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 800px) {
   .topbar {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
-  }
-
-  .topbar nav a {
-    margin-left: 0.4rem;
   }
 
   .hero {
@@ -260,19 +271,28 @@ body {
   }
 
   .section.highlight {
-    margin: 1rem 5vw;
     padding: 2rem 1.7rem;
+    margin: 1rem 5vw;
   }
 }
 
 @media (max-width: 520px) {
-  .topbar nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem;
-  }
-
   .hero-text h1 {
     font-size: 2.1rem;
   }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+/* ================= PROJECT VIDEOS ================= */
+
+.project-video {
+  width: 100%;
+  margin-top: 0.9rem;
+  border-radius: 14px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  background: #000;
 }
