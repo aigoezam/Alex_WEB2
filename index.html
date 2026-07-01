@@ -2,134 +2,252 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Alexander Immanuel Goerke Zamora - Industrial Electronics and Automation Engineering</title>
+  <title>Alexander Immanuel Goerke Zamora — Portfolio</title>
+  <meta name="description" content="Industrial Electronics and Automation Engineer — Robotics, Digital Control, Signal Processing. DTU Erasmus+ & UPV." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
+  <!-- ========== BACKGROUND FX ========== -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+
   <!-- ========== TOPBAR ========== -->
   <header class="topbar">
-    <div class="logo">Alexander Goerke</div>
-    <nav>
-      <a href="#about">About Me</a>
-      <a href="#copenhagen">Copenhagen Experience</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+    <a href="#hero" class="logo">AIG<span>Z</span></a>
+
+    <nav id="mainNav">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#journey" data-i18n="nav.journey">Journey</a>
+      <a href="#experience" data-i18n="nav.experience">Experience</a>
+      <a href="#tfg" data-i18n="nav.tfg">Thesis</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
+
+    <div class="topbar-actions">
+      <button id="langToggle" class="lang-toggle" type="button" aria-label="Switch language">
+        <span class="lang-option" data-lang-option="en">EN</span>
+        <span class="lang-sep">/</span>
+        <span class="lang-option" data-lang-option="es">ES</span>
+      </button>
+      <button id="navToggle" class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
   <main>
 
     <!-- ========== HERO ========== -->
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Hi, I'm <span>Alexander Immanuel Goerke Zamora</span></h1>
+    <section id="hero" class="hero">
+      <div class="bg-robot" id="bgRobot" aria-hidden="true"></div>
 
-        <p>
-          Industrial Electronics and Automation Engineering student from Spain, currently expanding my academic,
-          professional, and personal horizons through an Erasmus+ exchange at the Technical University of Denmark (DTU).
-          I enjoy solving engineering challenges with a practical, hands-on mindset – from robotics and digital control
-          to electronics, automation, and energy systems.
-        </p>
+      <div class="hero-inner">
+        <div class="hero-text reveal">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Industrial Electronics &amp; Automation Engineer</p>
+          <h1>
+            <span data-i18n="hero.hi">Hi, I'm</span>
+            <span class="gradient-text">Alexander Goerke</span>
+          </h1>
 
-        <div class="hero-buttons">
-          <a href="#experience" class="btn-primary">View my experience</a>
-          <a href="CV_Alexander.pdf" download class="btn-secondary">Download CV</a>
+          <p class="hero-lead" data-i18n="hero.lead">
+            Industrial Electronics and Automation Engineer, recently back from an Erasmus+ exchange at the Technical
+            University of Denmark (DTU). I'm hands-on, curious, and driven to keep learning — I like taking an idea all
+            the way from code to a machine that actually works on the bench.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn-primary magnetic" data-i18n="hero.cta_thesis">See my projects</a>
+
+            <div class="cv-dropdown">
+              <button type="button" class="btn-secondary magnetic cv-dropdown-btn" id="cvDropdownBtn" data-i18n="hero.cta_cv">
+                Download CV
+              </button>
+              <div class="cv-dropdown-menu" id="cvDropdownMenu">
+                <a href="assets/cv/CV_Alexander_EN.pdf" download>English 🇬🇧</a>
+                <a href="assets/cv/CV_Alexander_ES.pdf" download>Español 🇪🇸</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-terminal reveal">
+            <div class="hero-terminal-bar">
+              <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+              <span class="hero-terminal-title">alexander@engineering</span>
+            </div>
+            <div class="hero-terminal-body">
+              <span class="prompt">&gt;</span> <span id="heroTyping"></span><span class="cursor-blink">▌</span>
+            </div>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-num">3+</span>
+              <span class="stat-label" data-i18n="hero.stat1">languages I build with: Python, C/C++, MATLAB</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">3</span>
+              <span class="stat-label" data-i18n="hero.stat2">control strategies validated on real hardware</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">6</span>
+              <span class="stat-label" data-i18n="hero.stat3">months of paid engineering experience</span>
+            </div>
+          </div>
         </div>
+
+        <div class="hero-photo reveal">
+          <div class="hero-photo-frame" id="heroPhotoFrame">
+            <img src="assets/img/profile.jpg" alt="Alexander Immanuel Goerke Zamora" />
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-cue" aria-label="Scroll down"><span></span></a>
+    </section>
+
+
+    <!-- ========== ABOUT ========== -->
+    <section id="about" class="section">
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="about.tag">Who I am</span>
+        <h2 data-i18n="about.title">About Me</h2>
+      </div>
+
+      <div class="about-grid">
+        <p class="reveal" data-i18n="about.p1">
+          I'm <strong>Alexander Immanuel Goerke</strong>, graduate in
+          <strong>Industrial Electronics and Automation Engineering</strong> from Universitat Politècnica de València (UPV),
+          having just completed an Erasmus+ exchange at the <strong>Technical University of Denmark (DTU)</strong>.
+        </p>
+        <p class="reveal" data-i18n="about.p2">
+          I enjoy the full stack of an engineering project: doing the math, writing the code, wiring the hardware,
+          and debugging it on the bench until it works. That mindset took me from a robot geometry sketch for my
+          Bachelor's thesis to six months writing signal-processing code for real biosignal data at a medical
+          technology company.
+        </p>
+        <p class="reveal" data-i18n="about.p3">
+          What drives me is curiosity and work ethic: I like picking up new tools fast, digging into how things work
+          under the hood, and putting in the hours a project actually needs — in the lab, in the code, or on a call
+          with a team.
+        </p>
       </div>
     </section>
 
 
-    <!-- ========== ABOUT ME ========== -->
-    <section id="about" class="section">
-      <h2>About Me</h2>
+    <!-- ========== JOURNEY / TIMELINE ========== -->
+    <section id="journey" class="section highlight">
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="journey.tag">The path so far</span>
+        <h2 data-i18n="journey.title">My Journey</h2>
+      </div>
 
-      <p>
-        My name is <strong>Alexander Immanuel Goerke</strong>, and I am currently studying
-        <strong>Industrial Electronics and Automation Engineering</strong> at Universitat Politècnica de València (UPV).
-      </p>
+      <ol class="timeline">
+        <li class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date" data-i18n="journey.upv_dates">2022 — 2026</span>
+            <h3 data-i18n="journey.upv_title">UPV — Valencia, Spain</h3>
+            <p data-i18n="journey.upv_desc">B.Sc. in Industrial Electronics and Automation Engineering, completed.
+              Foundations in circuits, embedded systems, energy systems and automation.</p>
+          </div>
+        </li>
 
-      <p>
-        I consider myself a responsible, motivated, and detail-oriented person. I enjoy taking on challenges, working
-        on meaningful projects, and continuously improving both technically and personally. I have strong problem-solving
-        skills, leadership experience, and a clear, calm communication style.
-      </p>
+        <li class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date" data-i18n="journey.2025">2025 — 2026</span>
+            <h3 data-i18n="journey.dtu_title">Erasmus+ at DTU — Copenhagen, Denmark</h3>
+            <p data-i18n="journey.dtu_desc">Exchange semester focused on Robotics, Digital Control and Deep Learning.
+              Left Spain to test myself in a new language, culture and engineering environment — and came back more
+              independent, confident and globally minded.</p>
+          </div>
+        </li>
 
-      <p>
-        Throughout my academic path, I have gained hands-on experience in areas such as electronics, robotics, control
-        systems, energy systems, and automation, supported by real-world experience in sectors like customer service,
-        tutoring, and automotive detailing.
-      </p>
-    </section>
+        <li class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date" data-i18n="journey.2025b">2025 — 2026</span>
+            <h3 data-i18n="journey.tfg_title">Bachelor Thesis — Differential Robot Arm</h3>
+            <p data-i18n="journey.tfg_desc">Designed, simulated and built the control system for a differential
+              robotic arm for agricultural weed-intervention — from the math to a working prototype on real
+              hardware.</p>
+          </div>
+        </li>
 
+        <li class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date" data-i18n="journey.2026">Jan 2026 — Jun 2026</span>
+            <h3 data-i18n="journey.cebreo_title">Cebreo Medical A/S — Copenhagen, Denmark</h3>
+            <p data-i18n="journey.cebreo_desc">Student worker developing signal-processing algorithms and
+              visualization tools for physiological biosignals (EEG, accelerometer, PPG) in a medtech R&amp;D team.</p>
+          </div>
+        </li>
 
-    <!-- ========== COPENHAGEN EXPERIENCE ========== -->
-    <section id="copenhagen" class="section highlight">
-      <h2>My Life in Spain & Copenhagen</h2>
-
-      <p>
-        Before arriving in Copenhagen, my life in Spain was defined by constant movement, curiosity, and the ambition to grow.
-        I was always searching for new opportunities to learn, gain real experience, and challenge myself both personally and
-        academically. Whether it was studying engineering, working, tutoring, or practicing sports, I always tried to maintain
-        an active, disciplined lifestyle.
-      </p>
-
-      <p>
-        Sports have been a fundamental part of who I am. I have practiced <strong>padel</strong>,
-        <strong>skiing</strong> (snow and water), <strong>taekwondo</strong> (green belt, competition),
-        <strong>American football</strong> (competition), <strong>basketball</strong> (competition),
-        <strong>climbing</strong>, <strong>gym training</strong>, and even completed a
-        <strong>half marathon</strong>. These experiences taught me discipline, teamwork, leadership,
-        resilience, and the importance of consistency.
-      </p>
-
-      <p>
-        Coming to Copenhagen for my Erasmus+ exchange at DTU was a decision driven by the desire to expand my horizons and
-        experience life from a new perspective. I wanted to grow independently, understand new cultures, and place myself
-        in an international engineering environment where I could develop not only academically but personally as well.
-      </p>
-
-      <p>
-        Living here has been transformative. Copenhagen has helped me become more mature, more confident, and more social.
-        I have met incredible people from all around the world, learned to adapt to new environments, and gained a global
-        mindset that shapes how I face engineering and life. This experience has strengthened my communication skills,
-        pushed me out of my comfort zone, and helped me become a better version of myself.
-      </p>
-
-    
+        <li class="timeline-item reveal">
+          <div class="timeline-dot timeline-dot--active"></div>
+          <div class="timeline-content">
+            <span class="timeline-date" data-i18n="journey.now">Now</span>
+            <h3 data-i18n="journey.now_title">Degree, Erasmus+ and thesis — all done</h3>
+            <p data-i18n="journey.now_desc">Back from Copenhagen with my degree finished, thesis submitted, and real
+              engineering experience under my belt — hungry to keep learning and ready for the next challenge.</p>
+          </div>
+        </li>
+      </ol>
     </section>
 
 
     <!-- ========== EXPERIENCE ========== -->
     <section id="experience" class="section">
-      <h2>Experience</h2>
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="experience.tag">Work</span>
+        <h2 data-i18n="experience.title">Experience</h2>
+      </div>
 
-      <div class="projects-grid">
+      <div class="cards-grid">
 
-        <article class="project-card">
-          <h3>Leroy Merlin – Customer Service & Sales Assistant</h3>
-          <p>
-            Provided technical product guidance, managed stock and inventory, and resolved customer needs under
-            high-pressure environments. Developed teamwork, communication, and rapid problem-solving abilities.
+        <article class="card reveal">
+          <div class="card-badge" data-i18n="experience.cebreo_period">Jan 2026 – Jun 2026</div>
+          <h3 data-i18n="experience.cebreo_title">Cebreo Medical A/S — Data Analysis Engineer (Student Worker)</h3>
+          <p data-i18n="experience.cebreo_desc">
+            Developed signal-processing algorithms and analysis workflows for physiological biosignals (EEG,
+            accelerometer, PPG). Built data pipelines and visualization tools for clinical signal-quality inspection
+            inside a multidisciplinary software/physiology/product team.
           </p>
         </article>
 
-        <article class="project-card">
-          <h3>Private Tutor – Mathematics, Physics & Chemistry</h3>
-          <p>
-            Over two years of experience teaching students from all secondary levels. Designed personalized study plans,
-            explained complex topics step-by-step, and supported students and families with patience and clarity.
+        <article class="card reveal">
+          <div class="card-badge" data-i18n="experience.tutor_period">2022 – Present</div>
+          <h3 data-i18n="experience.tutor_title">Private Tutor — Maths, Physics &amp; Chemistry</h3>
+          <p data-i18n="experience.tutor_desc">
+            Over two years teaching secondary-school students. Designed personalized study plans and explained
+            complex topics step by step — recommended by school teachers for strong academic results.
           </p>
         </article>
 
-        <article class="project-card">
-          <h3>Restaurant Work – Waiter</h3>
-          <p>
-            Managed high-demand service responsibilities, ensuring an excellent customer experience. Improved leadership,
-            multitasking, and interpersonal skills while working under pressure.
+        <article class="card reveal">
+          <div class="card-badge" data-i18n="experience.leroy_period">2023</div>
+          <h3 data-i18n="experience.leroy_title">Leroy Merlin — Customer Service &amp; Sales</h3>
+          <p data-i18n="experience.leroy_desc">
+            Provided technical product guidance and managed stock under high-pressure conditions. Built teamwork,
+            communication and rapid problem-solving skills.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-badge" data-i18n="experience.waiter_period">2021 – 2022</div>
+          <h3 data-i18n="experience.waiter_title">Restaurant Work — Waiter</h3>
+          <p data-i18n="experience.waiter_desc">
+            Managed high-demand service responsibilities while ensuring an excellent customer experience. Improved
+            leadership, multitasking and interpersonal skills under pressure.
           </p>
         </article>
 
@@ -137,85 +255,228 @@
     </section>
 
 
-    <!-- ========== PROJECTS ========== -->
-<section id="projects" class="section">
-  <h2>Engineering Projects</h2>
+    <!-- ========== FEATURED PROJECT: TFG ========== -->
+    <section id="tfg" class="section highlight tfg-section">
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="tfg.tag">Bachelor Thesis</span>
+        <h2 data-i18n="tfg.title">Differential Robot Arm — Control Design</h2>
+        <p class="tfg-subtitle" data-i18n="tfg.subtitle">
+          My thesis project: writing and testing the control code for a differential robotic arm, for agricultural
+          weed-intervention research, from a blank sketch to a robot moving on a bench.
+        </p>
+      </div>
 
-  <div class="projects-grid">
+      <div class="tfg-badges reveal">
+        <span class="badge">🤖 <span data-i18n="tfg.badge2">Real-robot control, not just simulation</span></span>
+        <span class="badge">📐 <span data-i18n="tfg.badge3">Full IK/FK derivation</span></span>
+        <span class="badge">🎓 <span data-i18n="tfg.badge1">Prototype now used in DTU research</span></span>
+      </div>
 
-    <!-- Project 1 -->
-    <article class="project-card">
-      <h3>4-DOF Robotic Arm – Vision & Control</h3>
-      <p>
-        Built a robotic arm capable of detecting objects using computer vision,
-        converting pixel coordinates to world space, and reaching targets using
-        inverse kinematics. Implemented smooth joint-space motion with Dynamixel servos.
-      </p>
+      <div class="tfg-story reveal">
+        <ol class="tfg-steps">
+          <li><span data-i18n="tfg.step1">Define robot geometry &amp; coordinate frames</span></li>
+          <li><span data-i18n="tfg.step2">Derive &amp; validate inverse/forward kinematics</span></li>
+          <li><span data-i18n="tfg.step3">Simulate the full control pipeline in Python</span></li>
+          <li><span data-i18n="tfg.step4">Port the controller to C++ on a Teensy 4.1</span></li>
+          <li><span data-i18n="tfg.step5">Log real-robot experiments and compare controllers</span></li>
+        </ol>
+      </div>
 
-      <video class="project-video" controls>
-        <source src="videos/Robotics.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </article>
+      <div class="tfg-video-block reveal">
+        <div class="tfg-tabs" role="tablist">
+          <button class="tfg-tab is-active" data-video="smooth" type="button" data-i18n="tfg.tab_smooth">Smooth Feedback (main)</button>
+          <button class="tfg-tab" data-video="feedforward" type="button" data-i18n="tfg.tab_feedforward">Feedforward</button>
+          <button class="tfg-tab" data-video="pid" type="button" data-i18n="tfg.tab_pid">Full PID</button>
+          <button class="tfg-tab" data-video="sim" type="button" data-i18n="tfg.tab_sim">Offline Simulation</button>
+        </div>
 
-    <!-- Project 2 -->
-    <article class="project-card">
-      <h3>Differential-Drive Robot – Digital Control</h3>
-      <p>
-        Designed and implemented PI/PD controllers and sensor fusion for a
-        differential-drive robot. Validated in Simulink and deployed on a Teensy 4.1.
-      </p>
+        <div class="tfg-video-frame">
+          <video id="tfgVideo" class="project-video" controls playsinline
+                 poster="" src="videos/tfg_smooth_feedback.mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
-      <video class="project-video" controls>
-        <source src="videos/Digital_Control.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </article>
+        <p class="tfg-video-caption" id="tfgVideoCaption" data-i18n="tfg.caption_smooth">
+          Default mode: encoder-based bounded feedback correcting the inverse-kinematics reference — the main
+          demonstration mode used in the thesis.
+        </p>
+      </div>
 
-    <!-- Project 3 -->
-    <article class="project-card">
-      <h3>Graph Neural Networks – Deep Learning</h3>
-      <p>
-        Trained a physics-informed graph neural network (PaiNN) for molecular
-        property prediction using QM9 and MD17 datasets.
-      </p>
+      <div class="tfg-tech reveal">
+        <p data-i18n="tfg.tech_label"><strong>Stack:</strong></p>
+        <div class="chip-row">
+          <span class="chip">Python</span>
+          <span class="chip">NumPy</span>
+          <span class="chip">C++</span>
+          <span class="chip">Teensy 4.1</span>
+          <span class="chip">Dynamixel</span>
+          <span class="chip">MATLAB / Simulink</span>
+          <span class="chip">Sensor Fusion</span>
+        </div>
+      </div>
+    </section>
 
-      <video class="project-video" controls>
-        <source src="videos/Deep_Learning.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </article>
 
-  </div>
-</section>
+    <!-- ========== OTHER PROJECTS ========== -->
+    <section id="projects" class="section">
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="projects.tag">More builds</span>
+        <h2 data-i18n="projects.title">Other Engineering Projects</h2>
+      </div>
 
+      <div class="cards-grid">
+
+        <article class="card reveal">
+          <h3 data-i18n="projects.p1_title">4-DOF Robotic Arm — Vision &amp; Control</h3>
+          <p data-i18n="projects.p1_desc">
+            Built a robotic arm that detects objects with computer vision, converts pixel coordinates to world space,
+            and reaches targets via inverse kinematics — with smooth joint-space motion on Dynamixel servos.
+          </p>
+          <video class="project-video" controls playsinline>
+            <source src="videos/Robotics.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </article>
+
+        <article class="card reveal">
+          <h3 data-i18n="projects.p2_title">Differential-Drive Robot — Digital Control</h3>
+          <p data-i18n="projects.p2_desc">
+            Designed and implemented PI/PD controllers and sensor fusion for a differential-drive robot, validated in
+            Simulink and deployed on a Teensy 4.1.
+          </p>
+          <video class="project-video" controls playsinline>
+            <source src="videos/Digital_Control.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </article>
+
+        <article class="card reveal">
+          <h3 data-i18n="projects.p3_title">Graph Neural Networks — Deep Learning</h3>
+          <p data-i18n="projects.p3_desc">
+            Trained a physics-informed graph neural network (PaiNN) for molecular property prediction using the
+            QM9 and MD17 datasets.
+          </p>
+          <video class="project-video" controls playsinline>
+            <source src="videos/Deep_Learning.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ========== SKILLS ========== -->
+    <section id="skills" class="section highlight">
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="skills.tag">Toolbox</span>
+        <h2 data-i18n="skills.title">Skills</h2>
+      </div>
+
+      <div class="skills-grid reveal">
+        <div class="skill-group">
+          <h3 data-i18n="skills.eng_title">Engineering</h3>
+          <div class="chip-row">
+            <span class="chip">Robotics</span>
+            <span class="chip">Digital Control</span>
+            <span class="chip">Signal Processing</span>
+            <span class="chip">Embedded Systems</span>
+            <span class="chip">Circuit Design</span>
+            <span class="chip">IK / FK Kinematics</span>
+            <span class="chip">Sensor Fusion</span>
+            <span class="chip">Mechatronics</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 data-i18n="skills.prog_title">Programming</h3>
+          <div class="chip-row">
+            <span class="chip">Python</span>
+            <span class="chip">C / C++</span>
+            <span class="chip">MATLAB</span>
+            <span class="chip">Arduino</span>
+            <span class="chip">HTML / CSS / JS</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 data-i18n="skills.design_title">Design &amp; Simulation</h3>
+          <div class="chip-row">
+            <span class="chip">SolidWorks</span>
+            <span class="chip">AutoCAD</span>
+            <span class="chip">MATLAB / Simulink</span>
+            <span class="chip">Proteus</span>
+            <span class="chip">OrCAD</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 data-i18n="skills.tools_title">Tools</h3>
+          <div class="chip-row">
+            <span class="chip">Git</span>
+            <span class="chip">VS Code</span>
+            <span class="chip">LaTeX</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-row reveal">
+        <div class="cert">
+          <strong data-i18n="skills.cert1_title">ISO 21500 &amp; ISO 21502</strong>
+          <span data-i18n="skills.cert1_desc">Project, Programme &amp; Portfolio Management — Danish Standards, Jan 2026</span>
+        </div>
+        <div class="cert">
+          <strong data-i18n="skills.cert2_title">Languages</strong>
+          <span data-i18n="skills.cert2_desc">Spanish (native) · English (C1) · German (A2)</span>
+        </div>
+        <div class="cert">
+          <strong data-i18n="skills.cert3_title">Science Prize</strong>
+          <span data-i18n="skills.cert3_desc">Iale International School</span>
+        </div>
+      </div>
+    </section>
 
 
     <!-- ========== CONTACT ========== -->
-<section id="contact" class="section">
-  <h2>Contact</h2>
-  <p>
-    If you want to collaborate, connect, or discuss opportunities, feel free to reach out:
-  </p>
-  <ul>
-    <li>Email: 
-      <a href="mailto:alexander.goerke2004@gmail.com">
-        alexander.goerke2004@gmail.com
-      </a>
-    </li>
-    <li>LinkedIn: 
-      <a href="https://www.linkedin.com/in/alexanderimmanuelgoerke" target="_blank">
-        www.linkedin.com/in/alexanderimmanuelgoerke
-      </a>
-    </li>
-  </ul>
-</section>
+    <section id="contact" class="section contact-section">
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="contact.tag">Let's talk</span>
+        <h2 data-i18n="contact.title">Contact</h2>
+      </div>
+
+      <p class="reveal" data-i18n="contact.lead">
+        If you want to collaborate, connect, or discuss opportunities, feel free to reach out:
+      </p>
+
+      <div class="contact-grid reveal">
+        <a class="contact-card" href="mailto:alexander.goerke2004@gmail.com">
+          <span class="contact-icon">✉️</span>
+          <span>alexander.goerke2004@gmail.com</span>
+        </a>
+        <a class="contact-card" href="https://www.linkedin.com/in/alexanderimmanuelgoerke" target="_blank" rel="noopener">
+          <span class="contact-icon">💼</span>
+          <span>linkedin.com/in/alexanderimmanuelgoerke</span>
+        </a>
+        <a class="contact-card" href="tel:+34635426375">
+          <span class="contact-icon">📞</span>
+          <span>+34 635 426 375</span>
+        </a>
+        <div class="contact-card contact-card--static">
+          <span class="contact-icon">📍</span>
+          <span data-i18n="contact.location">Valencia, Spain</span>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
-    © <span id="year"></span> Alexander Goerke. All rights reserved.
+    © <span id="year"></span> Alexander Goerke Zamora. <span data-i18n="footer.rights">All rights reserved.</span>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+  <script src="robot.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
