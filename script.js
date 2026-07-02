@@ -29,8 +29,8 @@ const translations = {
       upv_desc: "B.Sc. in Industrial Electronics and Automation Engineering, completed. Foundations in circuits, embedded systems, energy systems and automation.",
       "2025": "2025 — 2026",
       dtu_title: "Erasmus+ at DTU — Copenhagen, Denmark",
-      dtu_desc: "Exchange semester focused on Robotics, Digital Control and Deep Learning. Left Spain to test myself in a new language, culture and engineering environment — and came back more independent, confident and globally minded.",
-      "2025b": "2025 — 2026",
+      dtu_desc: "Full academic year abroad, with coursework in Robotics, Digital Control and Deep Learning. Left Spain to test myself in a new language, culture and engineering environment — and came back more independent, confident and globally minded.",
+      "2025b": "Feb 2026 — Jun 2026",
       tfg_title: "Bachelor Thesis — Differential Robot Arm",
       tfg_desc: "Designed, simulated and built the control system for a differential robotic arm for agricultural weed-intervention — from the math to a working prototype on real hardware.",
       "2026": "Jan 2026 — Jun 2026",
@@ -138,8 +138,8 @@ const translations = {
       upv_desc: "Grado en Ingeniería Electrónica Industrial y Automática, completado. Bases en circuitos, sistemas embebidos, sistemas energéticos y automatización.",
       "2025": "2025 — 2026",
       dtu_title: "Erasmus+ en DTU — Copenhague, Dinamarca",
-      dtu_desc: "Semestre de intercambio centrado en Robótica, Control Digital y Deep Learning. Salí de España para ponerme a prueba en un idioma, cultura y entorno de ingeniería nuevos — y volví más independiente, seguro de mí mismo y con una mentalidad global.",
-      "2025b": "2025 — 2026",
+      dtu_desc: "Un año académico completo fuera, con asignaturas de Robótica, Control Digital y Deep Learning. Salí de España para ponerme a prueba en un idioma, cultura y entorno de ingeniería nuevos — y volví más independiente, seguro de mí mismo y con una mentalidad global.",
+      "2025b": "Feb 2026 — Jun 2026",
       tfg_title: "TFG — Brazo Robótico Diferencial",
       tfg_desc: "Diseñé, simulé y construí el sistema de control de un brazo robótico diferencial para intervención agrícola contra malas hierbas — desde las matemáticas hasta un prototipo funcionando en hardware real.",
       "2026": "Ene 2026 — Jun 2026",
@@ -420,15 +420,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!cvDropdown.contains(e.target)) cvDropdown.classList.remove("is-open");
   });
 
-  // Scroll progress bar
+  // Scroll progress bar (rAF-throttled so it updates at most once per frame)
   const progressBar = document.getElementById("scrollProgress");
+  let progressTicking = false;
   const updateProgress = () => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     progressBar.style.width = pct + "%";
+    progressTicking = false;
   };
-  window.addEventListener("scroll", updateProgress, { passive: true });
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (progressTicking) return;
+      progressTicking = true;
+      requestAnimationFrame(updateProgress);
+    },
+    { passive: true }
+  );
   updateProgress();
 
   // Scroll reveal
@@ -453,6 +463,12 @@ document.addEventListener("DOMContentLoaded", () => {
     pid: "videos/tfg_pid.mp4",
     sim: "videos/tfg_offline_sim.mp4",
   };
+  const tfgVideoPosters = {
+    smooth: "videos/posters/tfg_smooth_feedback.jpg",
+    feedforward: "videos/posters/tfg_feedforward.jpg",
+    pid: "videos/posters/tfg_pid.jpg",
+    sim: "videos/posters/tfg_offline_sim.jpg",
+  };
   const tfgTabs = document.querySelectorAll(".tfg-tab");
   const tfgVideo = document.getElementById("tfgVideo");
   const tfgCaption = document.getElementById("tfgVideoCaption");
@@ -463,6 +479,7 @@ document.addEventListener("DOMContentLoaded", () => {
       tab.classList.add("is-active");
 
       const key = tab.getAttribute("data-video");
+      tfgVideo.poster = tfgVideoPosters[key];
       tfgVideo.src = tfgVideoSources[key];
       tfgVideo.load();
 

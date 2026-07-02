@@ -32,9 +32,9 @@
     camera.position.set(0, -0.78, 5.2);
     camera.lookAt(0, -0.78, 0);
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
     renderer.domElement.style.display = "block";
     container.appendChild(renderer.domElement);
 
